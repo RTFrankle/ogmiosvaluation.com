@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Ogmios Valuation Services</title>
+  <style>
+
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --dark: #1C2B3A;
+    --mid: #2C3E50;
+    --darkest: #131E29;
+    --body: #657179;
+    --secondary: #8C9EAA;
+    --off-white: #F5F3EF;
+    --white: #FFFFFF;
+    --cognac: #A0522D;
+    --cognac-light: #C47A52;
+    --teal: #00897B;
+    --teal-light: #00BFA5;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--body);
+    background: var(--white);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: var(--darkest);
+    border-bottom: 1px solid rgba(160,82,45,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 60px;
+    height: 68px;
+  }
+
+  .nav-logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    color: var(--white);
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .nav-logo span {
+    font-weight: 300;
+    color: var(--cognac-light);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--secondary);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover, .nav-links a.active { color: var(--cognac-light); }
+
+  /* FOOTER */
+  footer {
+    background: var(--darkest);
+    padding: 48px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+    border-top: 1px solid rgba(160,82,45,0.2);
+  }
+
+  .footer-logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    color: var(--white);
+    text-transform: uppercase;
+  }
+
+  .footer-logo span { font-weight: 300; color: var(--cognac-light); }
+
+  .footer-links {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--secondary);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--cognac-light); }
+
+  .footer-copy {
+    font-size: 10px;
+    color: rgba(140,158,170,0.5);
+    letter-spacing: 0.05em;
+  }
+
+  /* SHARED */
+  .section-eyebrow {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--cognac);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-eyebrow::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--cognac);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--dark);
+    margin-bottom: 32px;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--cognac);
+  }
+
+  .page-wrap {
+    padding-top: 68px;
+    min-height: calc(100vh - 68px);
+  }
+
+  .page-hero {
+    background: var(--darkest);
+    padding: 100px 120px 80px;
+    border-bottom: 2px solid var(--cognac);
+  }
+
+  .page-hero .section-eyebrow { color: var(--cognac-light); }
+  .page-hero .section-eyebrow::after { background: var(--cognac-light); }
+
+  .page-hero .section-title {
+    color: var(--white);
+    font-size: 64px;
+  }
+
+  .page-hero .section-title em { color: var(--cognac-light); }
+
+  .page-hero p {
+    font-size: 14px;
+    line-height: 1.9;
+    color: var(--secondary);
+    max-width: 560px;
+    margin-top: 16px;
+  }
+
+  .page-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 60px;
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 24px; }
+    .nav-links { gap: 20px; }
+    .nav-links a { font-size: 9px; letter-spacing: 0.1em; }
+    footer { padding: 40px 24px; flex-direction: column; }
+    .page-hero { padding: 60px 24px 48px; }
+    .page-hero .section-title { font-size: 42px; }
+    .page-content { padding: 48px 24px; }
+    .section-title { font-size: 36px; }
+  }
+
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-bottom: 80px;
+    align-items: start;
+  }
+
+  .about-body {
+    font-size: 15px;
+    line-height: 1.9;
+    color: var(--body);
+    margin-bottom: 24px;
+  }
+
+  .about-pull {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--dark);
+    border-left: 3px solid var(--cognac);
+    padding-left: 28px;
+    margin: 48px 0;
+  }
+
+  .approach-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 64px;
+    background: rgba(160,82,45,0.15);
+  }
+
+  .approach-card {
+    background: var(--off-white);
+    padding: 40px 36px;
+  }
+
+  .approach-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 300;
+    color: rgba(160,82,45,0.2);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .approach-title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--dark);
+    margin-bottom: 16px;
+  }
+
+  .approach-body {
+    font-size: 13px;
+    line-height: 1.85;
+    color: var(--body);
+  }
+
+  @media (max-width: 768px) {
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .approach-cards { grid-template-columns: 1fr; }
+  }
+
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">OGMIOS <span>Valuation</span></a>
+    <ul class="nav-links">
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="services.html" >Services</a></li>
+      <li><a href="leadership.html" >Leadership</a></li>
+      <li><a href="engagements.html" >Engagements</a></li>
+      <li><a href="index.html#contact" style="color:var(--cognac-light);">Contact</a></li>
+    </ul>
+  </nav>
+
+
+<div class="page-wrap">
+  <div class="page-hero">
+    <div class="section-eyebrow">About</div>
+    <h1 class="section-title">Built to be <em>understood</em></h1>
+    <p>A valuation is only as credible as the clarity with which it can be explained, the rigor with which it can be defended, and the trust it earns from the people who rely on it.</p>
+  </div>
+
+  <div class="page-content">
+    <div class="about-grid">
+      <div>
+        <div class="section-eyebrow">Our Name</div>
+        <p class="about-body">Ogmios (og-MEE-os) was the Celtic god of eloquence — depicted not with weapons, but with a chain of gold and amber linking his tongue to the ears of those who followed him. He led not by force, but by reason.</p>
+        <p class="about-body">We chose the name with purpose. A conclusion is only as strong as the clarity with which it can be explained, the rigor with which it can be defended, and the trust it earns from the people who rely on it. The numbers should tell a story. We build the argument around them.</p>
+      </div>
+      <div>
+        <div class="section-eyebrow">Our Founding</div>
+        <p class="about-body">Ogmios Valuation was founded on a straightforward premise: that a client should be able to understand their valuation — not just receive it.</p>
+        <p class="about-body">We have completed more than 100 valuations across manufacturing, healthcare, retail, and real estate — from small privately held businesses to national operators with over $1 billion in revenue.</p>
+        <div class="about-pull">"The numbers should tell a story. We build the argument around them."</div>
+      </div>
+    </div>
+
+    <div class="section-eyebrow">Our Approach</div>
+    <h2 class="section-title">How we <em>work</em></h2>
+    <div class="approach-cards">
+      <div class="approach-card">
+        <div class="approach-num">01</div>
+        <div class="approach-title">No Stake in the Outcome</div>
+        <p class="approach-body">We are retained to reach a supportable conclusion — not a convenient one. We are committed to the integrity of the analysis, and that independence is the foundation of everything we produce.</p>
+      </div>
+      <div class="approach-card">
+        <div class="approach-num">02</div>
+        <div class="approach-title">Built to Be Challenged</div>
+        <p class="approach-body">Every conclusion is documented, explainable, and stress-tested before it leaves our hands — whether it will face an IRS examiner, opposing counsel, or a skeptical board. We don't produce reports we can't defend in a room.</p>
+      </div>
+      <div class="approach-card">
+        <div class="approach-num">03</div>
+        <div class="approach-title">Senior Expertise, Start to Finish</div>
+        <p class="approach-body">Every engagement receives senior-level attention from start to finish. The person responsible for your conclusion is the person you speak with.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <footer>
+    <div class="footer-logo">OGMIOS <span>Valuation</span></div>
+    <div class="footer-links">
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="leadership.html">Leadership</a>
+      <a href="engagements.html">Engagements</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+    <div class="footer-copy">© 2025 Ogmios Valuation Services, LLC. All rights reserved.</div>
+  </footer>
+
+</body>
+</html>
