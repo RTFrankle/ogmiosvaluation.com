@@ -1,0 +1,1572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ogmios Valuation Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --dark: #1C2B3A;
+    --darker: #131E29;
+    --mid: #2C3E50;
+    --cognac: #A0522D;
+    --cognac-light: #C47A52;
+    --teal: #00897B;
+    --teal-light: #00BFA5;
+    --body: #657179;
+    --secondary: #8C9EAA;
+    --off-white: #F5F3EF;
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--off-white);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(19, 30, 41, 0.97);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(160, 82, 45, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 60px;
+    height: 70px;
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    color: var(--white);
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .nav-logo span {
+    color: var(--cognac-light);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--secondary);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--cognac-light); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--darker);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 40px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse 80% 60% at 50% 40%, rgba(44, 62, 80, 0.6) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(160, 82, 45, 0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 80% 20%, rgba(0, 137, 123, 0.06) 0%, transparent 60%);
+  }
+
+  .hero-rule {
+    width: 40px;
+    height: 1px;
+    background: var(--cognac);
+    margin: 0 auto 32px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--cognac-light);
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(64px, 10vw, 110px);
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero h1 .valuation {
+    font-size: clamp(20px, 3.5vw, 38px);
+    letter-spacing: 0.35em;
+    display: block;
+    color: var(--secondary);
+    font-weight: 300;
+    margin-top: 8px;
+  }
+
+  .hero-tagline {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--cognac-light);
+    margin: 32px auto 16px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-descriptor {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(16px, 2vw, 20px);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--secondary);
+    max-width: 600px;
+    line-height: 1.6;
+    margin: 0 auto 48px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-cta {
+    display: inline-block;
+    padding: 14px 40px;
+    border: 1px solid var(--cognac);
+    color: var(--cognac-light);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-cta:hover {
+    background: var(--cognac);
+    color: var(--white);
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 60px;
+    margin-top: 72px;
+    position: relative;
+    z-index: 1;
+    padding-top: 48px;
+    border-top: 1px solid rgba(160, 82, 45, 0.2);
+  }
+
+  .hero-stat-item {
+    text-align: center;
+  }
+
+  .hero-stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 500;
+    color: var(--teal-light);
+    display: block;
+  }
+
+  .hero-stat-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--secondary);
+    margin-top: 4px;
+    display: block;
+  }
+
+  /* QUOTE BAND */
+  .quote-band {
+    background: var(--dark);
+    padding: 72px 60px;
+    text-align: center;
+    border-top: 1px solid rgba(160, 82, 45, 0.3);
+    border-bottom: 1px solid rgba(160, 82, 45, 0.3);
+  }
+
+  .quote-band blockquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 2.5vw, 24px);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--off-white);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .quote-band cite {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--cognac-light);
+    margin-top: 24px;
+    font-style: normal;
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 100px 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-full {
+    max-width: 100%;
+    padding: 100px 0;
+  }
+
+  .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 60px;
+  }
+
+  .section-eyebrow {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--cognac);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-eyebrow::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--cognac);
+    opacity: 0.3;
+    max-width: 60px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--dark);
+    margin-bottom: 24px;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--cognac);
+  }
+
+  /* ABOUT */
+  #about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-text p {
+    font-size: 15px;
+    line-height: 1.85;
+    color: var(--body);
+    margin-bottom: 20px;
+  }
+
+  .about-text p:first-of-type {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-style: italic;
+    color: var(--dark);
+    line-height: 1.6;
+  }
+
+  .about-visual {
+    background: var(--dark);
+    padding: 56px 48px;
+    position: relative;
+  }
+
+  .about-visual::before {
+    content: '';
+    position: absolute;
+    top: -8px; left: -8px;
+    right: 8px; bottom: 8px;
+    border: 1px solid var(--cognac);
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  .about-stat {
+    margin-bottom: 36px;
+  }
+
+  .about-stat:last-child { margin-bottom: 0; }
+
+  .about-stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 400;
+    color: var(--teal-light);
+    display: block;
+    line-height: 1;
+  }
+
+  .about-stat-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--secondary);
+    margin-top: 6px;
+    display: block;
+  }
+
+  .about-stat-divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(160, 82, 45, 0.2);
+    margin: 28px 0;
+  }
+
+  /* SERVICES */
+  #services {
+    background: var(--dark);
+    padding: 100px 0;
+    max-width: 100%;
+  }
+
+  .services-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 60px;
+  }
+
+  #services .section-title {
+    color: var(--white);
+  }
+
+  #services .section-eyebrow {
+    color: var(--cognac-light);
+  }
+
+  .services-intro {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--secondary);
+    max-width: 700px;
+    line-height: 1.7;
+    margin-bottom: 60px;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: rgba(160, 82, 45, 0.15);
+  }
+
+  .service-column {
+    background: var(--darker);
+    padding: 48px;
+  }
+
+  .service-column-title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--cognac-light);
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(160, 82, 45, 0.3);
+  }
+
+  .service-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+
+  .service-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--teal);
+    flex-shrink: 0;
+    margin-top: 7px;
+  }
+
+  .service-item span {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--secondary);
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+  }
+
+  .methodology-block {
+    background: var(--mid);
+    border-left: 3px solid var(--cognac);
+    padding: 32px 40px;
+    margin-top: 2px;
+    grid-column: 1 / -1;
+  }
+
+  .methodology-block p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--off-white);
+    line-height: 1.6;
+  }
+
+  /* APPROACH */
+  #approach {
+    background: var(--white);
+  }
+
+  .approach-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 60px;
+  }
+
+  .approach-card {
+    border-top: 2px solid var(--cognac);
+    padding-top: 28px;
+  }
+
+  .approach-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 300;
+    color: rgba(160, 82, 45, 0.2);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+
+  .approach-card h3 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--dark);
+    margin-bottom: 14px;
+  }
+
+  .approach-card p {
+    font-size: 13px;
+    line-height: 1.75;
+    color: var(--body);
+  }
+
+  /* LEADERSHIP */
+  #leadership {
+    background: var(--off-white);
+    max-width: 100%;
+    padding: 100px 0;
+  }
+
+  .leadership-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 60px;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .leadership-name-photo {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    margin-bottom: 8px;
+    flex-direction: row;
+  }
+
+  .leadership-photo {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 2px;
+    border-top: 3px solid var(--cognac);
+    flex-shrink: 0;
+  }
+
+  .leadership-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px;
+    font-weight: 400;
+    color: var(--dark);
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+
+  .leadership-title {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cognac);
+    margin-bottom: 32px;
+  }
+
+  .leadership-bio p {
+    font-size: 14px;
+    line-height: 1.85;
+    color: var(--body);
+    margin-bottom: 18px;
+  }
+
+  .credentials {
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(160, 82, 45, 0.2);
+  }
+
+  .credentials-title {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--cognac);
+    margin-bottom: 20px;
+  }
+
+  .credential-item {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 14px;
+    align-items: baseline;
+  }
+
+  .credential-abbr {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--teal);
+    min-width: 48px;
+  }
+
+  .credential-full {
+    font-size: 12px;
+    color: var(--body);
+    line-height: 1.5;
+  }
+
+  /* ENGAGEMENTS */
+  #engagements {
+    background: var(--white);
+    max-width: 100%;
+    padding: 100px 0;
+  }
+
+  .engagements-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 60px;
+  }
+
+  .engagements-intro {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-style: italic;
+    color: var(--body);
+    margin-bottom: 48px;
+    max-width: 600px;
+  }
+
+  .engagements-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .engagements-table thead tr {
+    border-bottom: 2px solid var(--cognac);
+  }
+
+  .engagements-table th {
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--cognac);
+    padding: 0 16px 14px 0;
+    text-align: left;
+  }
+
+  .engagements-table tbody tr {
+    border-bottom: 1px solid rgba(28, 43, 58, 0.08);
+    transition: background 0.15s;
+  }
+
+  .engagements-table tbody tr:hover {
+    background: rgba(160, 82, 45, 0.04);
+  }
+
+  .engagements-table td {
+    padding: 18px 16px 18px 0;
+    font-size: 13px;
+    color: var(--body);
+    vertical-align: middle;
+  }
+
+  .engagement-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    color: rgba(160, 82, 45, 0.3);
+    font-weight: 400;
+    width: 40px;
+  }
+
+  .engagement-type {
+    font-weight: 600;
+    color: var(--dark);
+    font-size: 12px;
+    letter-spacing: 0.05em;
+  }
+
+  .engagement-tag {
+    display: inline-block;
+    padding: 3px 10px;
+    background: rgba(0, 137, 123, 0.08);
+    color: var(--teal);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 2px;
+  }
+
+  /* FEES */
+  #fees {
+    background: var(--dark);
+    max-width: 100%;
+    padding: 100px 0;
+  }
+
+  .fees-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 60px;
+  }
+
+  #fees .section-title { color: var(--white); }
+  #fees .section-eyebrow { color: var(--cognac-light); }
+
+  .fees-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: var(--secondary);
+    margin-bottom: 16px;
+  }
+
+  .fees-intro {
+    font-size: 13px;
+    color: var(--secondary);
+    max-width: 600px;
+    line-height: 1.7;
+    margin-bottom: 56px;
+  }
+
+  .fees-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: rgba(160, 82, 45, 0.2);
+    margin-bottom: 48px;
+  }
+
+  .fee-card {
+    background: var(--darker);
+    padding: 40px 36px;
+    text-align: center;
+  }
+
+  .fee-card-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--secondary);
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .fee-card-amount {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    font-weight: 400;
+    color: var(--teal-light);
+    display: block;
+    line-height: 1;
+  }
+
+  .fee-card-type {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-top: 12px;
+    display: block;
+  }
+
+  .litigation-fees {
+    background: var(--mid);
+    padding: 36px 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 24px;
+  }
+
+  .litigation-item {}
+
+  .litigation-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cognac-light);
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .litigation-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    color: var(--teal-light);
+    display: block;
+  }
+
+  .fees-footnote {
+    font-size: 11px;
+    color: rgba(140, 158, 170, 0.6);
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  /* CONTACT */
+  #contact {
+    background: var(--darker);
+    max-width: 100%;
+    padding: 100px 0;
+    text-align: center;
+  }
+
+  .contact-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 60px;
+  }
+
+  #contact .section-title { color: var(--white); }
+  #contact .section-eyebrow {
+    color: var(--cognac-light);
+    justify-content: center;
+  }
+  #contact .section-eyebrow::after { display: none; }
+
+  .contact-intro {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--secondary);
+    line-height: 1.7;
+    margin-bottom: 48px;
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 48px;
+  }
+
+  .contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .contact-label {
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--cognac-light);
+  }
+
+  .contact-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .contact-value:hover { color: var(--teal-light); }
+
+  .contact-divider {
+    width: 60px;
+    height: 1px;
+    background: rgba(160, 82, 45, 0.3);
+    margin: 0 auto 48px;
+  }
+
+  .contact-tagline {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--secondary);
+  }
+
+  /* FOOTER */
+  footer {
+    background: #0A1218;
+    padding: 32px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(160, 82, 45, 0.15);
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--secondary);
+  }
+
+  .footer-copy {
+    font-size: 10px;
+    color: rgba(140, 158, 170, 0.4);
+    letter-spacing: 0.08em;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow { animation: fadeUp 0.8s ease both; }
+  .hero h1 { animation: fadeUp 0.8s 0.15s ease both; }
+  .hero-tagline { animation: fadeUp 0.8s 0.25s ease both; }
+  .hero-descriptor { animation: fadeUp 0.8s 0.35s ease both; }
+  .hero-cta { animation: fadeUp 0.8s 0.45s ease both; }
+  .hero-stats { animation: fadeUp 0.8s 0.55s ease both; }
+
+  /* LEADERSHIP CARDS */
+  .leadership-section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 60px;
+  }
+
+  .leadership-cards {
+    display: flex;
+    gap: 32px;
+    margin-top: 48px;
+    flex-wrap: wrap;
+  }
+
+  .leadership-card {
+    width: 260px;
+    background: var(--white);
+    border-top: 3px solid var(--cognac);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .leadership-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(28,43,58,0.12);
+  }
+
+  .leadership-card-placeholder {
+    cursor: default;
+    border-top-color: rgba(160,82,45,0.2);
+    opacity: 0.5;
+  }
+
+  .leadership-card-placeholder:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .leadership-card-photo-wrap {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background: var(--off-white);
+  }
+
+  .leadership-card-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+
+  .leadership-card-photo-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .placeholder-icon {
+    font-size: 40px;
+    color: var(--secondary);
+    opacity: 0.4;
+  }
+
+  .leadership-card-info {
+    padding: 20px 24px 24px;
+  }
+
+  .leadership-card-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--dark);
+    margin-bottom: 4px;
+  }
+
+  .leadership-card-creds {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--teal);
+    margin-bottom: 4px;
+  }
+
+  .leadership-card-title {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--secondary);
+    margin-bottom: 16px;
+  }
+
+  .leadership-card-link {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--cognac);
+    text-transform: uppercase;
+  }
+
+  /* MODAL */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(19,30,41,0.85);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px;
+  }
+
+  .modal-overlay.active {
+    display: flex;
+  }
+
+  .modal-box {
+    background: var(--white);
+    max-width: 860px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: var(--secondary);
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  .modal-close:hover { color: var(--dark); }
+
+  .modal-inner {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+  }
+
+  .modal-left {
+    background: var(--off-white);
+    padding: 40px 32px;
+    border-right: 1px solid rgba(160,82,45,0.15);
+  }
+
+  .modal-photo {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    margin-bottom: 24px;
+    border-top: 3px solid var(--cognac);
+  }
+
+  .modal-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--dark);
+    margin-bottom: 4px;
+  }
+
+  .modal-creds {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--teal);
+    margin-bottom: 4px;
+  }
+
+  .modal-role {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--secondary);
+    margin-bottom: 28px;
+  }
+
+  .modal-contact-block {
+    margin-bottom: 28px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid rgba(160,82,45,0.15);
+  }
+
+  .modal-contact-label {
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--cognac);
+    margin-bottom: 10px;
+  }
+
+  .modal-contact-value {
+    display: block;
+    font-size: 12px;
+    color: var(--teal);
+    text-decoration: none;
+    margin-bottom: 6px;
+  }
+
+  .modal-contact-value:hover { color: var(--cognac); }
+
+  .modal-credentials-block {}
+
+  .modal-cred-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    align-items: baseline;
+  }
+
+  .modal-cred-abbr {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--teal);
+    min-width: 36px;
+    letter-spacing: 0.08em;
+  }
+
+  .modal-cred-full {
+    font-size: 11px;
+    color: var(--body);
+    line-height: 1.4;
+  }
+
+  .modal-right {
+    padding: 48px 40px;
+  }
+
+  .modal-section-label {
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--cognac);
+    margin-bottom: 16px;
+  }
+
+  .modal-bio {
+    font-size: 14px;
+    line-height: 1.85;
+    color: var(--body);
+    margin-bottom: 16px;
+  }
+
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    section { padding: 72px 24px; }
+    #about { grid-template-columns: 1fr; gap: 48px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .fees-grid { grid-template-columns: 1fr; }
+    .approach-grid { grid-template-columns: 1fr; }
+    .leadership-inner { grid-template-columns: 1fr; gap: 48px; padding: 0 24px; }
+    .engagements-inner { padding: 0 24px; }
+    .fees-inner { padding: 0 24px; }
+    .services-inner { padding: 0 24px; }
+    .litigation-fees { grid-template-columns: 1fr; gap: 24px; }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+    .hero-stats { flex-direction: column; gap: 32px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Ogmios <span>·</span> Valuation</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#leadership">Leadership</a></li>
+    <li><a href="#engagements">Engagements</a></li>
+    <li><a href="#fees">Fees</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-rule"></div>
+  <p class="hero-eyebrow">Independent Business Valuation · Central Ohio · National</p>
+  <h1>
+    OGMIOS
+    <span class="valuation">Valuation Services</span>
+  </h1>
+  <p class="hero-tagline">Transparency &nbsp;·&nbsp; Candor &nbsp;·&nbsp; Trust</p>
+  <p class="hero-descriptor">Expert-led valuation for M&A, estate & gift tax, litigation support, and complex transactions</p>
+  <a href="#contact" class="hero-cta">Begin a Conversation</a>
+  <div class="hero-stats">
+    <div class="hero-stat-item">
+      <span class="hero-stat-number">100+</span>
+      <span class="hero-stat-label">Valuations Completed</span>
+    </div>
+    <div class="hero-stat-item">
+      <span class="hero-stat-number">$3.5B+</span>
+      <span class="hero-stat-label">Aggregate Value Analyzed</span>
+    </div>
+    <div class="hero-stat-item">
+      <span class="hero-stat-number">15+</span>
+      <span class="hero-stat-label">Years of Experience</span>
+    </div>
+  </div>
+</div>
+
+<!-- QUOTE BAND -->
+<div class="quote-band">
+  <blockquote>
+    "Valuation shouldn't be a commodity and is only as credible as the experience, methodology, and objectivity behind it. We built ours to be understood, explained, and defended — at every step."
+  </blockquote>
+  <cite>— Robert T. Frankle, CPA · CVA · MBA &nbsp;|&nbsp; Principal & Founder</cite>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-text">
+    <div class="section-eyebrow">About</div>
+    <h2 class="section-title">Built on a <em>straightforward</em> premise</h2>
+    <p>Ogmios (og-MEE-os) was the Celtic god of eloquence — depicted not with weapons, but with a chain of gold and amber linking his tongue to the ears of those who followed him. He led not by force, but by reason.</p>
+    <p>We chose the name with purpose. A conclusion is only as strong as the clarity with which it can be explained, the rigor with which it can be defended, and the trust it earns from the people who rely on it. The numbers should tell a story. We build the argument around them.</p>
+    <p>Ogmios Valuation was founded on a straightforward premise: that a client should be able to understand their valuation — not just receive it. We have completed more than 100 valuations across manufacturing, healthcare, retail, and real estate — from small privately held businesses to national operators with over $1 billion in revenue.</p>
+  </div>
+  <div class="about-visual">
+    <div class="about-stat">
+      <span class="about-stat-num">100+</span>
+      <span class="about-stat-label">Valuations Completed</span>
+    </div>
+    <div class="about-stat-divider"></div>
+    <div class="about-stat">
+      <span class="about-stat-num">$3.5B+</span>
+      <span class="about-stat-label">Aggregate Value Analyzed</span>
+    </div>
+    <div class="about-stat-divider"></div>
+    <div class="about-stat">
+      <span class="about-stat-num">15+</span>
+      <span class="about-stat-label">Years of Experience</span>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<div id="services" class="section-full">
+  <div class="services-inner">
+    <div class="section-eyebrow">Services</div>
+    <h2 class="section-title" style="color:var(--white)">Comprehensive Valuation <em style="color:var(--cognac-light)">&amp; Advisory</em></h2>
+    <p class="services-intro">Ogmios Valuation provides independent business valuations and litigation support for closely held companies — from the straightforward to complex matters.</p>
+    <div class="services-grid">
+      <div class="service-column">
+        <div class="service-column-title">Business Valuation</div>
+        <div class="service-item"><div class="service-dot"></div><span>Transaction Advisory Services</span></div>
+        <div class="service-item"><div class="service-dot"></div><span>Succession Planning</span></div>
+        <div class="service-item"><div class="service-dot"></div><span>Estate &amp; Gift Tax</span></div>
+        <div class="service-item"><div class="service-dot"></div><span>Financing</span></div>
+        <div class="service-item"><div class="service-dot"></div><span>Calculation Reporting</span></div>
+        <div class="service-item"><div class="service-dot"></div><span>Fair Value / Purchase Price Allocation</span></div>
+      </div>
+      <div class="service-column">
+        <div class="service-column-title">Litigation Support</div>
+        <div class="service-item"><div class="service-dot"></div><span>Financial Modeling &amp; Economic Damages</span></div>
+        <div class="service-item"><div class="service-dot"></div><span>Lost Profit / Unjust Enrichment</span></div>
+        <div class="service-item"><div class="service-dot"></div><span>Marriage Dissolution</span></div>
+        <div class="service-item"><div class="service-dot"></div><span>Dissenting Shareholder Disputes</span></div>
+        <div class="service-item"><div class="service-dot"></div><span>Business Interruption Claims</span></div>
+      </div>
+      <div class="methodology-block">
+        <p>Our proprietary methodology goes beyond industry convention to produce conclusions that are supportable at every level.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- APPROACH -->
+<section id="approach">
+  <div class="section-eyebrow">Our Approach</div>
+  <h2 class="section-title">Why it <em>matters</em> who does your valuation</h2>
+  <div class="approach-grid">
+    <div class="approach-card">
+      <div class="approach-num">01</div>
+      <h3>No Stake in the Outcome</h3>
+      <p>We are retained to reach a supportable conclusion — not a convenient one. We are committed to the integrity of the analysis — and that independence is the foundation of everything we produce.</p>
+    </div>
+    <div class="approach-card">
+      <div class="approach-num">02</div>
+      <h3>Built to Be Challenged</h3>
+      <p>Every conclusion is documented, explainable, and stress-tested before it leaves our hands — whether it will face an IRS examiner, opposing counsel, or a skeptical board. We don't produce reports we can't defend in a room.</p>
+    </div>
+    <div class="approach-card">
+      <div class="approach-num">03</div>
+      <h3>Senior Expertise, Start to Finish</h3>
+      <p>Every engagement receives senior-level attention from start to finish. The person responsible for your conclusion is the person you speak with.</p>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<div id="leadership" class="section-full">
+  <div class="leadership-section-inner">
+    <div class="section-eyebrow">Leadership</div>
+    <h2 class="section-title">The people behind <em>the work</em></h2>
+    <div class="leadership-cards">
+
+      <!-- ROB CARD -->
+      <div class="leadership-card" onclick="openModal('rob')">
+        <div class="leadership-card-photo-wrap">
+          <img src="rob_frankle.png" alt="Robert T. Frankle" class="leadership-card-photo">
+        </div>
+        <div class="leadership-card-info">
+          <div class="leadership-card-name">Robert T. Frankle</div>
+          <div class="leadership-card-creds">CPA &nbsp;·&nbsp; CVA &nbsp;·&nbsp; MBA</div>
+          <div class="leadership-card-title">Principal &amp; Founder</div>
+          <div class="leadership-card-link">View Profile →</div>
+        </div>
+      </div>
+
+      <!-- PARTNER PLACEHOLDER -->
+      <div class="leadership-card leadership-card-placeholder">
+        <div class="leadership-card-photo-wrap leadership-card-photo-placeholder">
+          <div class="placeholder-icon">+</div>
+        </div>
+        <div class="leadership-card-info">
+          <div class="leadership-card-name" style="color:var(--secondary);">Growing Our Team</div>
+          <div class="leadership-card-title" style="color:var(--secondary); font-size:12px; margin-top:8px;">Additional leadership coming soon.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ROB MODAL -->
+<div id="modal-rob" class="modal-overlay" onclick="closeModal(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-inner">
+      <div class="modal-left">
+        <img src="rob_frankle.png" alt="Robert T. Frankle" class="modal-photo">
+        <div class="modal-name">Robert T. Frankle</div>
+        <div class="modal-creds">CPA &nbsp;·&nbsp; CVA &nbsp;·&nbsp; MBA</div>
+        <div class="modal-role">Principal &amp; Founder</div>
+        <div class="modal-contact-block">
+          <div class="modal-contact-label">Contact</div>
+          <a href="mailto:rob@ogmiosvaluation.com" class="modal-contact-value">rob@ogmiosvaluation.com</a>
+          <a href="tel:6147259195" class="modal-contact-value">(614) 725-9195</a>
+        </div>
+        <div class="modal-credentials-block">
+          <div class="modal-contact-label">Credentials</div>
+          <div class="modal-cred-item"><span class="modal-cred-abbr">CPA</span><span class="modal-cred-full">Certified Public Accountant</span></div>
+          <div class="modal-cred-item"><span class="modal-cred-abbr">CVA</span><span class="modal-cred-full">Certified Valuation Analyst</span></div>
+          <div class="modal-cred-item"><span class="modal-cred-abbr">MBA</span><span class="modal-cred-full">The Ohio State University – Strategy &amp; Operations</span></div>
+          <div class="modal-cred-item"><span class="modal-cred-abbr">BSBA</span><span class="modal-cred-full">Ohio Northern University – Accounting (High Distinction)</span></div>
+        </div>
+      </div>
+      <div class="modal-right">
+        <div class="modal-section-label">Experience</div>
+        <p class="modal-bio">Rob brings more than 15 years of valuation and corporate finance experience to every engagement. Prior to founding Ogmios, he served as Corporate Controller and Head of Portfolio Management at Fillmore Capital Partners, where he directed valuation oversight for a portfolio exceeding $3.5 billion in assets.</p>
+        <p class="modal-bio">Earlier in his career, Rob held financial and operational roles at L Brands, Greif, and DSW — giving him direct, ground-level insight into the businesses he now values.</p>
+        <div class="modal-section-label" style="margin-top:32px;">Outside the Office</div>
+        <p class="modal-bio">Outside the office, Rob lives in Powell, Ohio with his wife, two kids, a Blue Heeler named Bandit — yes, after the dad in Bluey, and yes, the kids picked the name — and a cat he didn't ask for, but happy wife, happy life.</p>
+        <p class="modal-bio">When he's not working, Rob can usually be found on the tennis court, or shuttling his kids to tennis and the pool.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ENGAGEMENTS -->
+<div id="engagements" class="section-full">
+  <div class="engagements-inner">
+    <div class="section-eyebrow">Selected Engagements</div>
+    <h2 class="section-title">A record of <em>concluded</em> work</h2>
+    <p class="engagements-intro">A selection of concluded engagements across industries and engagement types.</p>
+    <table class="engagements-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Matter</th>
+          <th>Industry</th>
+          <th>Context</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="engagement-num">01</td>
+          <td><span class="engagement-type">Gift Tax Valuation</span></td>
+          <td>Manufacturing</td>
+          <td><span class="engagement-tag">Succession Planning</span></td>
+        </tr>
+        <tr>
+          <td class="engagement-num">02</td>
+          <td><span class="engagement-type">Estate Tax Valuation</span></td>
+          <td>Retail &amp; Entertainment</td>
+          <td><span class="engagement-tag">Owner Death</span></td>
+        </tr>
+        <tr>
+          <td class="engagement-num">03</td>
+          <td><span class="engagement-type">Partner Buy-Out</span></td>
+          <td>Healthcare</td>
+          <td><span class="engagement-tag">Ophthalmologic Surgery</span></td>
+        </tr>
+        <tr>
+          <td class="engagement-num">04</td>
+          <td><span class="engagement-type">Buy-Side Due Diligence</span></td>
+          <td>Retail</td>
+          <td><span class="engagement-tag">Personal Care</span></td>
+        </tr>
+        <tr>
+          <td class="engagement-num">05</td>
+          <td><span class="engagement-type">Sell-Side Due Diligence</span></td>
+          <td>Healthcare</td>
+          <td><span class="engagement-tag">Urgent Care &amp; Psych Center</span></td>
+        </tr>
+        <tr>
+          <td class="engagement-num">06</td>
+          <td><span class="engagement-type">Sell-Side Negotiation</span></td>
+          <td>Manufacturing</td>
+          <td><span class="engagement-tag">Asset Divestiture</span></td>
+        </tr>
+        <tr>
+          <td class="engagement-num">07</td>
+          <td><span class="engagement-type">Lost Profit / Fraud</span></td>
+          <td>Retail</td>
+          <td><span class="engagement-tag">Personal Care</span></td>
+        </tr>
+        <tr>
+          <td class="engagement-num">08</td>
+          <td><span class="engagement-type">Lost Profit / Land Use</span></td>
+          <td>Retail</td>
+          <td><span class="engagement-tag">Property Access</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- FEES -->
+<div id="fees" class="section-full">
+  <div class="fees-inner">
+    <div class="section-eyebrow">Fees</div>
+    <h2 class="section-title">Uncompromising Quality.<br><em>Boutique Firm Pricing.</em></h2>
+    <p class="fees-intro">Every engagement is scoped individually based on complexity, purpose, and available information.</p>
+    <div class="fees-grid">
+      <div class="fee-card">
+        <span class="fee-card-label">Average Fee</span>
+        <span class="fee-card-amount">$5,000</span>
+        <span class="fee-card-type">Calculation Report</span>
+      </div>
+      <div class="fee-card">
+        <span class="fee-card-label">Average Fee</span>
+        <span class="fee-card-amount">$10,000</span>
+        <span class="fee-card-type">Summary Report</span>
+      </div>
+      <div class="fee-card">
+        <span class="fee-card-label">Average Fee</span>
+        <span class="fee-card-amount">$15,000</span>
+        <span class="fee-card-type">Detailed Report</span>
+      </div>
+    </div>
+    <div class="litigation-fees">
+      <div class="litigation-item">
+        <span class="litigation-label">Litigation Support</span>
+        <span class="litigation-value">Fixed Fee</span>
+      </div>
+      <div class="litigation-item">
+        <span class="litigation-label">Report Development</span>
+        <span class="litigation-value">$250 / hr</span>
+      </div>
+      <div class="litigation-item">
+        <span class="litigation-label">Expert Testimony</span>
+        <span class="litigation-value">Up to $350 / hr</span>
+      </div>
+    </div>
+    <p class="fees-footnote">All fees are established in a signed Engagement Letter prior to commencement. Fees are scoped per matter; stated fee represents the average for each report type. The Detailed Report represents the minimum standard required for Expert Testimony.</p>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div id="contact">
+  <div class="contact-inner">
+    <div class="section-eyebrow">Contact</div>
+    <h2 class="section-title" style="color:var(--white); margin-bottom:24px;">Begin a<br><em>conversation</em></h2>
+    <p class="contact-intro">Most engagements begin with a single question. Bring yours.</p>
+    <div class="contact-divider"></div>
+    ct-tagline"><em>Transparency. Candor. Trust.</em></p>
+    <div class="contact-details">
+      <div class="contact-item">
+        <div class="contact-item-label">Email</div>
+        <a href="mailto:rob@ogmiosvaluation.com" class="contact-item-value">rob@ogmiosvaluation.com</a>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-label">Phone</div>
+        <a href="tel:6147259195" class="contact-item-value">(614) 725-9195</a>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-label">Location</div>
+        <div class="contact-item-value">Powell, Ohio &nbsp;·&nbsp; Serving Clients Nationally</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">OGMIOS <span>Valuation</span></div>
+    <div class="footer-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#leadership">Leadership</a>
+      <a href="#engagements">Engagements</a>
+      <a href="#fees">Fees</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-copy">© 2025 Ogmios Valuation Services, LLC. All rights reserved.</div>
+  </div>
+</div>
+
+<script>
+  function openModal(id) {
+    const modal = document.getElementById('modal-' + id);
+    if (modal) {
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeModal(event) {
+    if (event && event.target !== event.currentTarget) return;
+    document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('active'));
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  // Smooth scroll for nav links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+</body>
+</html>
